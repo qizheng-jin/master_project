@@ -1,0 +1,50 @@
+.left_block{
+    width: 40%;
+    height: auto;
+    margin-top: 5%;
+    float: left;
+    top: 20%;
+    display: inline;
+    border-radius: 0 30% 30% 0;
+    border-style:inset;
+    border-width: 5px;
+    border-color:#98bf21;
+    background-image: linear-gradient(#D1F2EB, #FCF3CF);
+}
+
+.right_block{
+    width: 50%;
+    height: auto;
+    margin-top: 5%;
+    top: 20%;
+    float: right;
+    display: inline;
+}
+
+.base_body{
+    background-image: url('../images/university.jpg');
+}
+
+.red_link{
+    color: #2E4053;
+    border-bottom: 0px;
+    font-size: 20px;
+}
+
+p{
+    font-family:"Times New Roman", Times, serif;
+}
+
+.teacher_welcome{
+    font-weight:bold;
+}
+
+.link_img{
+    height: 100px;
+}
+
+.table_div{
+    position:absolute;
+    left:20%;
+    top:20%;
+}

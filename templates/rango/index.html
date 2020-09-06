@@ -1,0 +1,31 @@
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+{% block title_block %}
+    index
+{% endblock %}
+
+
+{% block body_block %}
+<div class="container deff">
+    <h1>Welcome to class attendance system </h1><br>
+    <h5>
+        <p  class="serif"> When students improve their attendance rates, they improve their academic prospects and chances for graduating.</p>
+            <small>-- Former U.S. Secretary of Education<cite title="Source Title"> Arne Duncan</cite></small>
+        </blockquote>
+    </h5>
+    <a class="red_link" href="/rango/about/">About</a><br />
+
+    {% if user.is_authenticated %}
+        Hello {{user.username }} Welcome to Class Attendance System 😀.
+        <a href="{% url 'rango:logout' %}"> logout </a>
+    {% else %}
+        <a class="red_link" href="{% url 'rango:login' %}">Login</a><br>
+        <a class="red_link" href="{% url 'rango:teacher_register' %}">Teacher Register</a><br>
+        <a class="red_link" href="{% url 'rango:student_register' %}">Student Register</a><br>
+    {% endif %}
+</div>
+{% endblock %}
+
+
+
+

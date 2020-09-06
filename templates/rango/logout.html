@@ -1,0 +1,14 @@
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+{% block title_block %}
+    index
+{% endblock %}
+
+
+{% block body_block %}
+<div class="container">
+    <h3>You have successfully logged out!</h3>
+    <h3><a class="red_link" href="{% url 'rango:index' %}">Return to Index</a> </h3>
+    <img src="{% static 'images/thank you.png'%}" height="100px">
+</div>
+{% endblock %}

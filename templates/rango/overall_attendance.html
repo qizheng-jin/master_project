@@ -1,0 +1,43 @@
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+{% block title_block %}
+    index
+{% endblock %}
+
+
+{% block body_block %}
+<div class="table_div">
+    <h1>Here to check the overall attendance conditions</h1>
+    <form id="attendance_form" method="post" action="{% url 'rango:overall_attendance' %}">
+        {% csrf_token %}
+        {% csrf_token %}
+        Please input your teacher ID here:
+        <input type="text" name="teacherid" size=50><br>
+        <input type="submit" value="Search">
+    </form>
+    <table class="table table-hover table-dark">
+        <tr>
+            <th>classID</th>
+            <th>courseID</th>
+            <th>date</th>
+            <th>numOfStudents</th>
+        </tr>
+        {% for c in classes %}
+        <tr>
+            <td>{{ c.classID }}</td>
+            <td>{{ c.courseID }}</td>
+            <td>{{ c.Date }}</td>
+            <td>{{ c.numOfStudents }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h3><a class="red_link" href="{% url 'rango:check_attendance' %}">
+        Check Who is Missing
+    </a></h3>
+    <h3><a class="red_link" href="{% url 'rango:teacher_home' %}" >Back to teacher home</a></h3>
+</div>
+
+{% endblock %}
+
+{% block carousel_block %}
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+{% block title_block %}
+    index
+{% endblock %}
+
+
+{% block body_block %}
+<form id="attendance_form" method="post" action="{% url 'rango:check_attendance' %}">
+    {% csrf_token %}
+    {% csrf_token %}
+    Input the class ID: <input type="text" name="classid"><br>
+    Choose the class taking this course:
+        <select name="belonging_class">
+            <option value="class1">class1</option>
+            <option value="class2">class2</option>
+            <option value="class3">class3</option>
+        </select><br>
+    <input type="submit" value="Search"><br>
+</form>
+    <h3> Students in class</h3>
+    <table class="table">
+        <thead class="thead-dark table-striped">
+            <tr>
+                <th>studentID</th>
+                <th>studentName</th>
+            </tr>
+        </thead>
+        {% for student in in_class %}
+        <tr>
+            <td>{{ student.studentID }}</td>
+            <td> {{ student.studentName}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h3> Absent Students</h3>
+    <table class="table table-striped">
+        <thead class="thead-light">
+            <tr>
+                <th>studentID</th>
+                <th>studentName</th>
+            </tr>
+        </thead>
+        {% for student in absent %}
+        <tr>
+            <td>{{ student.studentID }}</td>
+            <td> {{ student.studentName}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h3><a class="red_link" href="{% url 'rango:teacher_home' %}" >Back to teacher home</a></h3>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+{% block title_block %}
+    index
+{% endblock %}
+
+
+{% block body_block %}
+<h3 class="container">
+    Dear Student:<br>
+    &nbsp&nbsp Student ID: {{studentid}}<br>
+    &nbsp&nbsp Student Name: {{studentname}}<br>
+    &nbsp&nbsp You have signed attendance successfully 😀!
+</h3>
+{% endblock %}
