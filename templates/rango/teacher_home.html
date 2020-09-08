@@ -6,9 +6,9 @@
 
 
 {% block body_block %}
-{% if user.is_authenticated %}
+<h1>Teacher Home</h1>
+<h3> Hello teacher {{user.username}}, teacher ID: {{teacher.teacherID}}.</h3>
 <div class="container">
-    <h3 class="sansserif teacher_welcome"> Teacher {{user.username}} welcome back! </h3>
     <a class="red_link" href="{% url 'rango:create_attendance' %}">
         <img style="height: 150px" src="{% static 'images/dianming.jpg' %}" alt="roll call">
         Create Class Attendance
@@ -22,5 +22,4 @@
         Check Who is Missing
     </a><br>
 </div>
-{% endif %}
 {% endblock %}

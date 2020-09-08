@@ -76,6 +76,7 @@ def student_register(request):
 
 
 def user_login(request):
+    context_dict = {}
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -85,12 +86,15 @@ def user_login(request):
                 login(request, user)
                 try:
                     teachers = TeacherProfile.objects.get(user=user)
+                    context_dict['teacher'] = teachers
                 except TeacherProfile.DoesNotExist:
                     teachers = None
+                    student = StudentProfile.objects.get(user=user)
+                    context_dict['student'] = student
                 if teachers is not None:
-                    return render(request, 'rango/teacher_home.html', {})
+                    return render(request, 'rango/teacher_home.html', context=context_dict)
                 else:
-                    return render(request, 'rango/student_home.html', {})
+                    return render(request, 'rango/student_home.html', context=context_dict)
             else:
                 return HttpResponse("Your Rango account is disabled.")
         else:
