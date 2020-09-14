@@ -6,23 +6,25 @@
 
 
 {% block body_block %}
-<div>
-    <h3>Here is your course information!  <br>  Remember to check it carefully</h3>
-   <div> Your Class ID is : {{ classid }} </div>
-   <div> Your Course Name is :{{ classname }}</div>
-   <div> Your Course Date is : {{ date }}</div>
+<div class="container">
+    <div>
+        <h3>Here is your course information!  <br>  Remember to check it carefully</h3>
+       <div> Your Class ID is : {{ classid }} </div>
+       <div> Your Course Name is :{{ classname }}</div>
+       <div> Your Course Date is : {{ date }}</div>
+    </div>
+    <div>
+        <br>
+        <h3> Check your student information to finish the attendances</h3>
+        <form id="course_form" method="post" action="{% url 'rango:sign_attendance' %}">
+            {% csrf_token %}
+            {% csrf_token %}
+            Class ID: <input type="text" name="classid" value= '{{ classid }}' size=20%><br><br>
+            Student ID: <input type="text" name="studentid" value= '{{ studentid }}' size=20%><br><br>
+            Student Name: <input type="text" name="studentname" value= '{{ studentname }}' size=20%><br><br>
+            <input type="submit" value="submit">
+        </form>
+    </div>
+    <h3>{{errors}}</h3>
 </div>
-<div>
-    <br>
-    <h3> Enter your student ID to finish the attendances</h3>
-    <form id="course_form" method="post" action="{% url 'rango:sign_attendance' %}">
-        {% csrf_token %}
-        {% csrf_token %}
-        <input type="hidden" name="classid" value= {{ classid }} size=50><br>
-        Student ID: <input type="text" name="studentid" value= '' size=50><br><br>
-        Student Name: <input type="text" name="studentname" value= '' size=50><br><br>
-        <input type="submit" value="submit">
-    </form>
-</div>
-<h3>{{errors}}</h3>
 {% endblock %}

@@ -16,7 +16,11 @@ def index(request):
 
 
 def about(request):
-    return render(request, 'rango/about.html', {})
+    context_dict={}
+    if request.user.is_authenticated:
+        teacherID = TeacherProfile.objects.get(user=request.user).values_list('teacherID', flat=True)
+        context_dict['teacherID'] = teacherID
+    return render(request, 'rango/about.html', context=context_dict)
 
 
 def teacher_register(request):
@@ -92,7 +96,7 @@ def user_login(request):
                     student = StudentProfile.objects.get(user=user)
                     context_dict['student'] = student
                 if teachers is not None:
-                    return render(request, 'rango/teacher_home.html', context=context_dict)
+                    return redirect(reverse('rango:teacher_home'))
                 else:
                     return render(request, 'rango/student_home.html', context=context_dict)
             else:
@@ -109,13 +113,22 @@ def user_logout(request):
 
 
 def teacher_home(request):
-    return render(request, 'rango/teacher_home.html', {})
+    context_dict={}
+    if request.user.is_authenticated:
+        teacher = TeacherProfile.objects.get(user=request.user)
+        context_dict['teacher'] = teacher
+        return render(request, 'rango/teacher_home.html', context=context_dict)
+    return render(request, 'rango/teacher_home.html', context=context_dict)
 
 
 def create_attendance(request):
     context_dict = {}
     classes = ClassProfile.objects.all()
     finish = False
+    teacher = ''
+    if request.user.is_authenticated:
+        teacher = TeacherProfile.objects.get(user=request.user)
+        context_dict['teacher'] = teacher
     if request.method == 'POST':
         class_form = ClassProfileForm(request.POST)
         if class_form.is_valid():
@@ -128,6 +141,7 @@ def create_attendance(request):
                 for c in classes:
                     if c.classID == cid:
                         out = False
+            new_class.teacherID = teacher.teacherID
             new_class.classID = cid
             new_class.numOfStudents = 0
             context_dict['cid'] = cid
@@ -149,6 +163,12 @@ def student_home(request):
     if request.method == 'POST':
         classid = request.POST.get('classid')
         context_dict['classid'] = classid
+        if request.user.is_authenticated:
+            student = StudentProfile.objects.get(user=request.user)
+            studentid = student.studentID
+            studentname = student.studentName
+            context_dict['studentid'] = studentid
+            context_dict['studentname'] = studentname
         try:
             this_class = ClassProfile.objects.get(classID=classid)
             courseID = this_class.courseID
@@ -170,7 +190,7 @@ def student_home(request):
 
 def sign_attendance(request):
     context_dict = {}
-    error = False
+
     if request.method == 'POST':
         classid = request.POST.get('classid')
         studentid = request.POST.get('studentid')
@@ -191,10 +211,9 @@ def sign_attendance(request):
 
 def overall_attendance(request):
     context_dict = {}
-    if request.method == 'POST':
-        teacherid = request.POST.get('teacherid')
-        context_dict['teacherid'] = teacherid
-        classes = ClassProfile.objects.filter(teacherID=teacherid)
+    if request.user.is_authenticated:
+        teacher = TeacherProfile.objects.get(user=request.user)
+        classes = ClassProfile.objects.filter(teacherID=teacher.teacherID)
         context_dict['classes'] = classes
         return render(request, 'rango/overall_attendance.html', context=context_dict)
     return render(request, 'rango/overall_attendance.html', context=context_dict)

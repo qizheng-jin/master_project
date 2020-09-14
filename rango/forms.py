@@ -49,11 +49,9 @@ class ClassProfileForm(forms.ModelForm):
         ('03_Internet', 'Internet'),
     )
 
-    teacherID = forms.CharField(max_length=128, help_text="Please enter your teacher ID")
-    courseID = forms.CharField(widget=widgets.Select(choices=select_value), help_text="Please enter your course ID")
+    courseID = forms.CharField(widget=widgets.Select(choices=select_value), help_text="Please enter your course name")
     Date = forms.DateField(widget=forms.SelectDateWidget, help_text="Enter the course date")
-
 
     class Meta:
         model = ClassProfile
-        fields =('teacherID', 'courseID', 'Date')
+        fields =('courseID', 'Date')
