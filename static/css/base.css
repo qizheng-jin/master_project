@@ -1,18 +1,7 @@
 @media screen and (min-width: 768px){
-  @-webkit-keyframes fadein {
-    0% {
-        opacity: 0;
-        background-color: #fff;
-    }
-    100% {
-        opacity: 1;
-        background-color:  #fff;
-    }
-  }
-
     .left_block{
         width: 40%;
-        min-height: 500px;
+        height: auto;
         margin-top: 5%;
         float: left;
         top: 20%;
@@ -22,10 +11,6 @@
         border-width: 5px;
         border-color:#98bf21;
         background-image: linear-gradient(#D1F2EB, #FCF3CF);
-        -webkit-animation-name: fadein;
-        -webkit-animation-duration: 1s;
-        -webkit-animation-timing-function: linear;
-        -webkit-animation-iteration-count: 1; /* Animation runs once */
     }
     .my_button{
         background-color: transparent;
@@ -73,30 +58,15 @@
         left:20%;
         top:20%;
     }
-
-    .my_div{
-        font-size: 100px;
-    }
 }
 
 @media screen and (max-width: 768px){
-  @-webkit-keyframes fadein {
-    0% {
-        opacity: 0;
-        background-color: #fff;
-    }
-    100% {
-        opacity: 1;
-        background-color:  #fff;
-    }
-  }
     *{
         merge: 0;
         padding: 0;
     }
     body, html{
       height:100%;
-      background-image: url('../images/university.jpg');
     }
     .main{
         height:100%;
@@ -115,10 +85,6 @@
         border-width: 5px;
         border-color:#98bf21;
         background-image: linear-gradient(#D1F2EB, #FCF3CF);
-        -webkit-animation-name: fadein;
-        -webkit-animation-duration: 1s;
-        -webkit-animation-timing-function: linear;
-        -webkit-animation-iteration-count: 1; /* Animation runs once */
     }
     .right_block{
         display:block;
@@ -131,26 +97,15 @@
     .my_button{
         background-color: transparent;
         border-radius: 10% 10% 10% 10%;
-        border-width:2px;
+        border-width:1px;
         border-color: #98bf21;
     }
     .mobile_icon{
-        height: 200px;
-        width: 200x;
-        margin-top: 5%;
-        margin-bottom: 10%;
+        height: 100px;
+        width: 100px;
+        margin: 0 auto;
     }
     .center{
         text-align: center;
     }
-    .my_div{
-        font-size: 100px;
-    }
-    .top_one{
-        margin-top: 10%;
-    }
-    .center_one{
-        margin-top: 30%;
-    }
-
 }
