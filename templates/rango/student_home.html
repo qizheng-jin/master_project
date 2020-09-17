@@ -6,8 +6,9 @@
 
 
 {% block body_block %}
-    <h1>Student Home</h1>
-    <h3> Hello student {{user.username}}, student ID: {{student.studentID}}.</h3>
+<div class="container">
+    <h3>Student Home</h3>
+    <h3> Hello student {{user.username}}.</h3>
     <div>
         <h3>search your class ID here:</h3><br><br>
         <form id="class_form" method="post" action="{% url 'rango:student_home' %}">
@@ -21,5 +22,6 @@
     {% if not_found %}
     <h2> {{ does_not_exist }}</h2>
     {% endif %}
+</div>
 </div>
 {% endblock %}

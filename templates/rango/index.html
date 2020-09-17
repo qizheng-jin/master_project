@@ -6,23 +6,39 @@
 
 
 {% block body_block %}
-<div class="container deff">
-    <h1>Welcome to class attendance system </h1><br>
-    <h5>
+<div class="container deff center">
+    <div class="center h_block top_one"><h5>Class Attendance System</h5></div>
+    <div class="center h_block">Attend Today, Achieve Tomorrow</div>
+    <h3 class="hidden_block">Welcome to class attendance system </h3><br>
+    <div class="h_block center">
+        <img src="{% static 'images/attendance2.png' %}" class="d-inline-block mobile_icon" alt=""></div>
+    <h5 class="hidden_block center">
         <p  class="serif"> When students improve their attendance rates, they improve their academic prospects and chances for graduating.</p>
             <small>-- Former U.S. Secretary of Education<cite title="Source Title"> Arne Duncan</cite></small>
         </blockquote>
     </h5>
-    <a class="red_link" href="/rango/about/">About</a><br />
+    <div class="center">
+        <button type="button" class="my_button">
+            <a class="red_link" href="/rango/about/">About</a>
+        </button>&nbsp&nbsp
 
-    {% if user.is_authenticated %}
-        Hello {{user.username }} Welcome to Class Attendance System 😀.
-        <a href="{% url 'rango:logout' %}"> logout </a>
-    {% else %}
-        <a class="red_link" href="{% url 'rango:login' %}">Login</a><br>
-        <a class="red_link" href="{% url 'rango:teacher_register' %}">Teacher Register</a><br>
-        <a class="red_link" href="{% url 'rango:student_register' %}">Student Register</a><br>
-    {% endif %}
+        {% if user.is_authenticated %}
+            Hello {{user.username }} Welcome to Class Attendance System 😀.
+        <button type="button" class="my_button">
+            <a href="{% url 'rango:logout' %}"> logout </a>
+        </button>&nbsp&nbsp
+        {% else %}
+            <button type="button" class="my_button">
+                <a class="red_link" href="{% url 'rango:login' %}">Login</a>
+            </button>&nbsp&nbsp
+            <button type="button" class="my_button">
+                <a class="red_link" href="{% url 'rango:teacher_register' %}">Teacher Register</a>
+            </button>&nbsp&nbsp
+            <button type="button" class="my_button">
+                <a class="red_link" href="{% url 'rango:student_register' %}">Student Register</a>
+            </button>&nbsp&nbsp
+        {% endif %}
+    </div>
 </div>
 {% endblock %}
 

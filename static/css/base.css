@@ -1,50 +1,156 @@
-.left_block{
-    width: 40%;
-    height: auto;
-    margin-top: 5%;
-    float: left;
-    top: 20%;
-    display: inline;
-    border-radius: 0 30% 30% 0;
-    border-style:inset;
-    border-width: 5px;
-    border-color:#98bf21;
-    background-image: linear-gradient(#D1F2EB, #FCF3CF);
+@media screen and (min-width: 768px){
+  @-webkit-keyframes fadein {
+    0% {
+        opacity: 0;
+        background-color: #fff;
+    }
+    100% {
+        opacity: 1;
+        background-color:  #fff;
+    }
+  }
+
+    .left_block{
+        width: 40%;
+        min-height: 500px;
+        margin-top: 5%;
+        float: left;
+        top: 20%;
+        display: inline;
+        border-radius: 0 30% 30% 0;
+        border-style:inset;
+        border-width: 5px;
+        border-color:#98bf21;
+        background-image: linear-gradient(#D1F2EB, #FCF3CF);
+        -webkit-animation-name: fadein;
+        -webkit-animation-duration: 1s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-iteration-count: 1; /* Animation runs once */
+    }
+    .my_button{
+        background-color: transparent;
+        border-radius: 10% 10% 10% 10%;
+        border-width:1px;
+        border-color: #98bf21;
+    }
+    .h_block{
+        display:block;
+        display:none;
+    }
+    .right_block{
+        width: 50%;
+        height: auto;
+        margin-top: 5%;
+        top: 20%;
+        float: right;
+        display: inline;
+    }
+
+    .base_body{
+        background-image: url('../images/university.jpg');
+    }
+
+    .red_link{
+        color: #2E4053;
+        border-bottom: 0px;
+        font-size: 20px;
+    }
+
+    p{
+        font-family:"Times New Roman", Times, serif;
+    }
+
+    .teacher_welcome{
+        font-weight:bold;
+    }
+
+    .link_img{
+        height: 100px;
+    }
+
+    .table_div{
+        position:absolute;
+        left:20%;
+        top:20%;
+    }
+
+    .my_div{
+        font-size: 100px;
+    }
 }
 
-.right_block{
-    width: 50%;
-    height: auto;
-    margin-top: 5%;
-    top: 20%;
-    float: right;
-    display: inline;
-}
+@media screen and (max-width: 768px){
+  @-webkit-keyframes fadein {
+    0% {
+        opacity: 0;
+        background-color: #fff;
+    }
+    100% {
+        opacity: 1;
+        background-color:  #fff;
+    }
+  }
+    *{
+        merge: 0;
+        padding: 0;
+    }
+    body, html{
+      height:100%;
+      background-image: url('../images/university.jpg');
+    }
+    .main{
+        height:100%;
+    }
+    .left_block{
+        width: 70%;
+        min-height: 70%;
+        margin-top: 10%;
+        margin-left: 15%;
+        margin-right: 15%;
+        float: left;
+        top: 20%;
+        display: inline;
+        border-radius: 10% 10% 10% 10%;
+        border-style:inset;
+        border-width: 5px;
+        border-color:#98bf21;
+        background-image: linear-gradient(#D1F2EB, #FCF3CF);
+        -webkit-animation-name: fadein;
+        -webkit-animation-duration: 1s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-iteration-count: 1; /* Animation runs once */
+    }
+    .right_block{
+        display:block;
+        display:none;
+    }
+    .hidden_block{
+        display:block;
+        display:none;
+    }
+    .my_button{
+        background-color: transparent;
+        border-radius: 10% 10% 10% 10%;
+        border-width:2px;
+        border-color: #98bf21;
+    }
+    .mobile_icon{
+        height: 200px;
+        width: 200x;
+        margin-top: 5%;
+        margin-bottom: 10%;
+    }
+    .center{
+        text-align: center;
+    }
+    .my_div{
+        font-size: 100px;
+    }
+    .top_one{
+        margin-top: 10%;
+    }
+    .center_one{
+        margin-top: 30%;
+    }
 
-.base_body{
-    background-image: url('../images/university.jpg');
-}
-
-.red_link{
-    color: #2E4053;
-    border-bottom: 0px;
-    font-size: 20px;
-}
-
-p{
-    font-family:"Times New Roman", Times, serif;
-}
-
-.teacher_welcome{
-    font-weight:bold;
-}
-
-.link_img{
-    height: 100px;
-}
-
-.table_div{
-    position:absolute;
-    left:20%;
-    top:20%;
 }

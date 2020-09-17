@@ -8,13 +8,6 @@
 {% block body_block %}
 <div class="table_div">
     <h1>Here to check the overall attendance conditions</h1>
-    <form id="attendance_form" method="post" action="{% url 'rango:overall_attendance' %}">
-        {% csrf_token %}
-        {% csrf_token %}
-        Please input your teacher ID here:
-        <input type="text" name="teacherid" size=50><br>
-        <input type="submit" value="Search">
-    </form>
     <table class="table table-hover table-dark">
         <tr>
             <th>classID</th>

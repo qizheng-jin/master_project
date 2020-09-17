@@ -7,9 +7,10 @@
 
 {% block body_block %}
 <h3 class="container">
-    Dear Student:<br>
+    Dear Student--<br>
     &nbsp&nbsp Student ID: {{studentid}}<br>
     &nbsp&nbsp Student Name: {{studentname}}<br>
     &nbsp&nbsp You have signed attendance successfully 😀!
-</h3>
+</h3><br>
+<h3><a href="{% url 'rango:student_home' %}">Return to Student Home</a> </h3>
 {% endblock %}
