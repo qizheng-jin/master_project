@@ -1,10 +1,10 @@
 {% extends 'rango/base.html' %}
 {% load staticfiles %}
 {% block title_block %}
-    index
+    login
 {% endblock %}
 
-
+<!--This is the log in page. It will take the user name and accounts and send them to the login function in views.py-->
 {% block body_block %}
     <h1>Login Page</h1>
     <form id="login_form" method="post" action="{% url 'rango:login' %}"><br><br>

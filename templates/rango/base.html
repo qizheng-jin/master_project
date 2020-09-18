@@ -4,13 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+    <!-- all title should start with class_attendance_ -->
     <title>
+        class_attendance_
         {% block title_block %}
         {% endblock %}
     </title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <!-- this is the css and js for bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <script src="{% static 'js/base.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -20,6 +24,7 @@
 <!-- navigation bar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">
+        <!--this is my web icon-->
     <img src="{% static 'images/attendance2.jpg' %}" width="30" height="30" class="d-inline-block align-top" alt="">
     Class Attendance
     </a>
@@ -28,17 +33,21 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
+        <!--link to index page-->
       <li class="nav-item active">
         <a class="nav-link red_link" href="{% url 'rango:index' %}">Home <span class="sr-only">(current)</span></a>
       </li>
+        <!--link to about us-->
       <li class="nav-item">
         <a class="nav-link" href="{% url 'rango:about' %}">About Us</a>
       </li>
+        <!--if user logged in, allow they to log out-->
       {% if user.is_authenticated %}
         <li class="nav-item">
             <a class="nav-link" href="{% url 'rango:logout' %}">Logout</a>
         </li>
         {% else %}
+        <!--if they did not log in, let them register-->
           <li class="nav-item">
             <a class="nav-link" href="{% url 'rango:teacher_register' %}">Teacher Register</a>
           </li>
@@ -53,12 +62,14 @@
   </div>
 </nav>
 
-
-<!-- Main Content of Page -->
+{% block main_block %}
+<!-- Main Content of Page, all other page source are inside body_block -->
 <div class="left_block center">
     {% block body_block %}
     {% endblock %}
 </div>
+{% endblock %}
+
 
 {% block carousel_block %}
 <!-- Image Carousel -->
@@ -71,13 +82,13 @@
           </ol>
           <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img src="{% static 'images/attendance1.png' %}" class="d-block w-100" alt="...">
+                  <img src="{% static 'images/attendance1.png' %}" class="d-block w-100" alt="attendance1">
                 </div>
                 <div class="carousel-item">
-                  <img src="{% static 'images/attendance3.png' %}" class="d-block w-100" alt="...">
+                  <img src="{% static 'images/attendance3.png' %}" class="d-block w-100" alt="attendance3">
                 </div>
                 <div class="carousel-item">
-                  <img src="{% static 'images/attendance4.png' %}" class="d-block w-100" alt="...">
+                  <img src="{% static 'images/attendance4.png' %}" class="d-block w-100" alt="attendance4">
                 </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

@@ -1,26 +1,49 @@
 {% extends 'rango/base.html' %}
 {% load staticfiles %}
 {% block title_block %}
-    index
+    check_overall
 {% endblock %}
 
-
-{% block body_block %}
+<!--
+    This is the check_overall attendance page. Basically, it will create a table to show all attendance information
+    created by this teacher.
+    <th> represents table head and <td> represents table contents.
+-->
+{% block main_block %}
 <div class="table_div">
     <h1>Here to check the overall attendance conditions</h1>
+    <p value="100"></p>
     <table class="table table-hover table-dark">
         <tr>
             <th>classID</th>
             <th>courseID</th>
             <th>date</th>
-            <th>numOfStudents</th>
+            <th>num of present students</th>
+            <th>who take the course</th>
+            <th>Class Size</th>
+            <th>Attendance Rates</th>
         </tr>
+        <!--classes is a context_dict from views.py represents all classes entities created by this teacher-->
         {% for c in classes %}
         <tr>
             <td>{{ c.classID }}</td>
             <td>{{ c.courseID }}</td>
             <td>{{ c.Date }}</td>
             <td>{{ c.numOfStudents }}</td>
+            <td>{{ c.belongingClass }}</td>
+            {% if c.belongingClass == 'class1' %}
+                <td>{{ numOfClassOne }}</td>
+            <!--This is a Django function for division, it means c.numOfstudents/c.numOfClassOne * 100%-->
+                <td>{% widthratio c.numOfStudents numOfClassOne 100%}%</td>
+            {% endif %}
+            {% if c.belongingClass == 'class2' %}
+                <td>{{ numOfClassTwo }}</td>
+                <td>{% widthratio c.numOfStudents numOfClassTwo 100%}%</td>
+            {% endif %}
+            {% if c.belongingClass == 'class3' %}
+                <td>{{ numOfClassThree }}</td>
+                <td>{% widthratio c.numOfStudents numOfClassThree 100%}%</td>
+            {% endif %}
         </tr>
         {% endfor %}
     </table>

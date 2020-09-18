@@ -4,12 +4,21 @@
     index
 {% endblock %}
 
-
+<!--
+    This is the html file for index page. Index page has two different layout decided by the screen size,
+    if the size is less then 768px, it will not show the picture.
+    class h_block: will be disappear when use computer.
+    class hidden_block: will be disappear when use mobile phone.
+-->
 {% block body_block %}
 <div class="container deff center">
+    <!--This is a mobile layout-->
     <div class="center h_block top_one"><h5>Class Attendance System</h5></div>
+    <!--This is a mobile layout-->
     <div class="center h_block">Attend Today, Achieve Tomorrow</div>
+    <!--This is a computer layout-->
     <h3 class="hidden_block">Welcome to class attendance system </h3><br>
+    <!--This is a mobile layout-->
     <div class="h_block center">
         <img src="{% static 'images/attendance2.png' %}" class="d-inline-block mobile_icon" alt=""></div>
     <h5 class="hidden_block center">
@@ -22,11 +31,13 @@
             <a class="red_link" href="/rango/about/">About</a>
         </button>&nbsp&nbsp
 
+        <!--When user is authenticated, show logout-->
         {% if user.is_authenticated %}
             Hello {{user.username }} Welcome to Class Attendance System 😀.
         <button type="button" class="my_button">
             <a href="{% url 'rango:logout' %}"> logout </a>
         </button>&nbsp&nbsp
+        <!--else show the registration and login-->
         {% else %}
             <button type="button" class="my_button">
                 <a class="red_link" href="{% url 'rango:login' %}">Login</a>

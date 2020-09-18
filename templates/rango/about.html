@@ -1,14 +1,15 @@
-<!DOCTYPE html>
+{% extends 'rango/base.html' %}
 {% load staticfiles %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>About</title>
-</head>
-<body>
-    <h1>This is the About Page</h1>
-    {{teacherID}}
-    <a href="{% url 'rango:index' %}">Index</a>
-    <div class="container">Hello</div>
-</body>
-</html>
+{% block title_block %}
+    about_us
+{% endblock %}
+
+
+{% block body_block %}
+<h4>This is project is my Msc project</h4>
+<p>It is really a good challenge for me to build an internet project based on Django, H5 <br>, and CSS. I would like to express my sincere thanks to Mrs. Ada, who leads me to go <br> through  this—especially for her teaching me how to design a project systematically and how to test and evaluate my projects. For more than three months, she has been guiding me every week and never complained. It is because of her assistance that I was able to complete this web design successfully.
+	<br></br>Also, I would like to thank those participants who take the evaluation questionnaire. Their opinions are precious that help me to update my project.
+</p>
+<h4>I hope you would enjoy this project！ 😀</h4>
+<a href="Mailto:2471083j@student.gla.ac.uk">Connect me by email</a>
+{% endblock %}

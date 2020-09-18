@@ -1,22 +1,28 @@
 {% extends 'rango/base.html' %}
 {% load staticfiles %}
 {% block title_block %}
-    index
+    teacher_home
 {% endblock %}
 
-
+<!--
+    Teacher Home is also an instruction page for teachers.
+    By clicking different hyper-links in this page, they will be redirected to different pages.
+-->
 {% block body_block %}
 <h1>Teacher Home</h1>
 <h3> Hello teacher {{user.username}}, teacher ID: {{teacher.teacherID}}.</h3>
 <div class="container">
+    <!--This link can be used to create attendance sheets-->
     <a class="red_link" href="{% url 'rango:create_attendance' %}">
         <img style="height: 150px" src="{% static 'images/dianming.jpg' %}" alt="roll call">
-        Create Class Attendance
+        Create Class Attendance sheets
     </a><br>
+    <!--This link can be used to check overall attendance rates table-->
     <a class="red_link" href="{% url 'rango:overall_attendance' %}">
         <img style="height: 150px" src="{% static 'images/overall_attendance.jpg' %}" alt="roll call">
         Overall Attendance Condition
     </a><br>
+    <!--This link can be used to check the absent students -->
     <a class="red_link" href="{% url 'rango:check_attendance' %}">
         <img style="height: 150px" src="{% static 'images/absent_students.jpg' %}" alt="roll call">
         Check Who is Missing

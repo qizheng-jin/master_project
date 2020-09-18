@@ -1,4 +1,12 @@
+
+/*
+    This is the css for this project. As is shown below, it contains two different designs based on the
+    screen min-width, which can make this project compatible with mobile devices.
+*/
 @media screen and (min-width: 768px){
+/*
+    This is a simple animation of fading in. This function will gradually change the opacity of the web page.
+*/
   @-webkit-keyframes fadein {
     0% {
         opacity: 0;
@@ -9,19 +17,21 @@
         background-color:  #fff;
     }
   }
-
+/*
+    This is the layout of main block for this web sites. All functions, operations and statistics have been stored inside.
+*/
     .left_block{
         width: 40%;
-        min-height: 500px;
+        min-height: 500px; /*It has a minimum height*/
         margin-top: 5%;
         float: left;
         top: 20%;
         display: inline;
-        border-radius: 0 30% 30% 0;
+        border-radius: 0 30% 30% 0; /*It has a curly border*/
         border-style:inset;
         border-width: 5px;
         border-color:#98bf21;
-        background-image: linear-gradient(#D1F2EB, #FCF3CF);
+        background-image: linear-gradient(#D1F2EB, #FCF3CF);/*It has a linear-gradient background*/
         -webkit-animation-name: fadein;
         -webkit-animation-duration: 1s;
         -webkit-animation-timing-function: linear;
@@ -33,10 +43,12 @@
         border-width:1px;
         border-color: #98bf21;
     }
+    /*some mobile design don't want to be shown in computer screen will use h_block*/
     .h_block{
         display:block;
         display:none;
     }
+    /*This is the picture carousel design*/
     .right_block{
         width: 50%;
         height: auto;
@@ -47,9 +59,9 @@
     }
 
     .base_body{
-        background-image: url('../images/university.jpg');
+        background-image: url('../images/university.jpg');/*background images*/
     }
-
+    /*change the color of hyper-links*/
     .red_link{
         color: #2E4053;
         border-bottom: 0px;
@@ -57,7 +69,7 @@
     }
 
     p{
-        font-family:"Times New Roman", Times, serif;
+        font-family:"Times New Roman", Times, serif;/*font: Times New Roman*/
     }
 
     .teacher_welcome{
@@ -77,8 +89,17 @@
     .my_div{
         font-size: 100px;
     }
-}
 
+    .my_input{
+        background-color: transparent;
+        border-color: transparent;
+        color: #FFFFFF;
+    }
+}
+/*
+    This is the layout of mobile, Compared with computer layout, the biggest change is that mobile layout
+    do not have the image carousel. Also, it put the left block to the middle.
+*/
 @media screen and (max-width: 768px){
   @-webkit-keyframes fadein {
     0% {

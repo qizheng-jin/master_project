@@ -1,10 +1,12 @@
 {% extends 'rango/base.html' %}
 {% load staticfiles %}
 {% block title_block %}
-    index
+    sign_attendance
 {% endblock %}
 
 
+<!--This is the html file for sign_attendance page. Students need to check the classID student ID and name and submit
+    this form, which will be analyzed in views.py and generates a new attendance entity in database-->
 {% block body_block %}
 <div class="container">
     <div>
@@ -19,6 +21,7 @@
         <form id="course_form" method="post" action="{% url 'rango:sign_attendance' %}">
             {% csrf_token %}
             {% csrf_token %}
+            <!--All three text input have default values, students only need to check them in case.-->
             Class ID: <input type="text" name="classid" value= '{{ classid }}' size=20%><br><br>
             Student ID: <input type="text" name="studentid" value= '{{ studentid }}' size=20%><br><br>
             Student Name: <input type="text" name="studentname" value= '{{ studentname }}' size=20%><br><br>

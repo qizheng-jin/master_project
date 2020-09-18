@@ -1,10 +1,10 @@
 {% extends 'rango/base.html' %}
 {% load staticfiles %}
 {% block title_block %}
-    index
+    student_register
 {% endblock %}
 
-
+<!--This is the student registration page-->
 {% block body_block %}
     <h1>Register for Student</h1>
     {% if registered %}
@@ -12,6 +12,7 @@
         <a href="{% url 'rango:index' %}">Return to the homepage.</a><br />
     {% else %}
         <Strong>Register Here!</Strong>
+<!--submit two different form: StudentForm and StudentProfileForm-->
         <form id="user_form" method="post" action="{% url 'rango:student_register' %}"
               enctype="multipart/form-data">
 

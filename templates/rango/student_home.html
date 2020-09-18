@@ -1,19 +1,20 @@
 {% extends 'rango/base.html' %}
 {% load staticfiles %}
 {% block title_block %}
-    index
+    student_home
 {% endblock %}
 
-
+<!--Main function of students home is to search the class based on class ID. Therefore in front end
+student only need to input the class ID, which will be analyzed in student_home function in views.py-->
 {% block body_block %}
 <div class="container">
-    <h3>Student Home</h3>
-    <h3> Hello student {{user.username}}.</h3>
+    <h3>Student Home</h3><br><br>
+    <h5> Hello student {{user.username}}.</h5>
     <div>
         <h3>search your class ID here:</h3><br><br>
         <form id="class_form" method="post" action="{% url 'rango:student_home' %}">
             {% csrf_token %}
-            ClassID: <input type="text" name="classid" value="" size="25" /><br><br>
+            ClassID: <input type="text" name="classid" value="" size="20%" /><br><br>
             <img src="{% static 'images/search.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
             <input type="submit" value="search" />
         </form>
@@ -21,6 +22,9 @@
 <div>
     {% if not_found %}
     <h2> {{ does_not_exist }}</h2>
+    {% endif %}
+    {% if wrongclass %}
+    <h3>This course is not for your class, please check the class ID and class belonging again.</h3>
     {% endif %}
 </div>
 </div>
